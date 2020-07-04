@@ -30,14 +30,13 @@ fn main() {
         }
 
         let webview2_path = if target.contains("x86_64") {
-            "webview-official/script/Microsoft.Web.WebView2.0.8.355/build/native/x64/WebView2Loader.dll"
+            "webview-official/script/Microsoft.Web.WebView2.0.9.488/build/native/x64/WebView2Loader.dll"
         } else {
-            "webview-official/script/Microsoft.Web.WebView2.0.8.355/build/native/x86/WebView2Loader.dll"
+            "webview-official/script/Microsoft.Web.WebView2.0.9.488/build/native/x86/WebView2Loader.dll"
         };
 
         println!("cargo:rustc-link-lib={}", webview2_path);
 
-        println!("cargo:rustc-link-search={}", webview2_path);
     } else if target.contains("apple") {
         build.file("webview-official/webview.cc").flag("-std=c++11");
 
